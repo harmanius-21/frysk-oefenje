@@ -1,7 +1,7 @@
 {
   "name":"Frysk Oefenje – Harm de Jong",
   "short_name":"Frysk Oefenje",
-  "start_url":"./Frysk_Oefenen_v8.html",
+  "start_url":"./index.html",
   "scope":"./",
   "display":"standalone",
   "background_color":"#f7f9fd",
