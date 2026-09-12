@@ -47,10 +47,10 @@
 // Maak daarvan afzonderlijke antwoordmogelijkheden, zodat bijvoorbeeld 'de apel/appel'
 // zowel 'de apel' als 'de appel' accepteert. Dit geldt ook voor vergelijkbare vermeldingen.
 WORDS.forEach(w => {
-  w.answers = [...new Set(w.answers.flatMap(a => String(a).split(/\s*[/,]\s*/).map(s => s.trim()).filter(Boolean)))];
+  w.answers = [...new Set(w.answers.flatMap(a => String(a).split(/\s*[/,]\s*/).flatMap(a => { const m = a.match(/^(.*)\(s\)(.*)$/); return m ? [m[1]+m[2], m[1]+'s'+m[2], a] : [a]; }).map(s => s.trim()).filter(Boolean)))];
 });
 
-const KEY='frysk_oefenje_v12';
+const KEY='frysk_oefenje_v13';
 const DEFAULTS={stats:{},sessions:0,settings:{count:15,feedback:'instant',retry:true,mode:'daily'},streak:{last:'',days:0}};
 const today=()=>new Date().toISOString().slice(0,10);
 const norm=s=>String(s??'').normalize('NFC').trim().replace(/\s+/g,' ').toLowerCase();
