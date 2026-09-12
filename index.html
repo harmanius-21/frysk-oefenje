@@ -35,7 +35,7 @@
   <main id="resultPage" class="page"><section id="result" class="card hidden"><div class="center"><div class="label">Oefening ôfrûne</div><div class="bigscore" id="score"></div><p id="resulttext"></p></div><div id="mistakes"></div><div style="height:10px"></div><div class="row"><button id="retryBtn" class="grow" onclick="retryMistakes()">↻ Flaters noch in kear</button><button class="secondary grow" onclick="showHome()">⌂ Nei thús</button></div></section></main>
 
   <main id="categoriesPage" class="page"><section class="card"><h2 class="sectiontitle">Kies in kategory</h2><p class="small">Oefenje rjochte mei in tema út dyn wurdboek.</p><div id="categoryList" class="category-list"></div></section></main>
-  <main id="progressPage" class="page"><section class="card"><h2 class="sectiontitle">Myn fuortgong</h2><div class="stats"><div class="stat" style="background:#eef3fa"><b id="pSessions">0</b><span>oefeningen</span></div><div class="stat" style="background:#eef3fa"><b id="pSeen">0</b><span>wurden sjoen</span></div><div class="stat" style="background:#eef3fa"><b id="pCorrectWords">0</b><span>goed beantwurde</span></div></div><div style="height:18px"></div><div class="label">Goede antwurden</div><div class="progress"><i id="correctBar"></i></div><p id="correctText" class="small"></p><div style="height:12px"></div><div class="label">Behearsking</div><div class="progress"><i id="masterBar"></i></div><p id="progressText" class="small"></p></section></main>
+  <main id="progressPage" class="page"><section class="card"><h2 class="sectiontitle">Myn fuortgong</h2><div class="stats"><div class="stat" style="background:#eef3fa"><b id="pSessions">0</b><span>oefeningen</span></div><div class="stat" style="background:#eef3fa"><b id="pSeen">0</b><span>wurden sjoen</span></div><div class="stat" style="background:#eef3fa"><b id="pCorrectWords">0</b><span>goed beantwurde</span></div></div><div style="height:18px"></div><div class="label">Goede antwurden</div><div class="progress"><i id="correctBar"></i></div><p id="correctText" class="small"></p><div style="height:12px"></div><div class="label">Behearsking</div><p id="levelText" class="small" style="font-size:18px;font-weight:800;color:var(--blue);margin:8px 0 4px"></p><div class="progress"><i id="masterBar"></i></div><p id="progressText" class="small"></p></section></main>
   <main id="settingsPage" class="page"><section class="card"><h2 class="sectiontitle">Ynstellingen</h2><div class="setting"><h3>Oantal wurden</h3><select id="settingsCount"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="30">30</option><option value="50">50</option></select></div><div class="setting"><h3>Feedback by it oefenjen</h3><label class="radio"><input type="radio" name="feedbackMode" value="instant"><span><b>Direkt by elke fraach</b><br><small>Do sjochst daliks oft dyn antwurd goed of ferkeard is.</small></span></label><label class="radio"><input type="radio" name="feedbackMode" value="end"><span><b>Pas oan de ein</b><br><small>Do krijst by it oefenjen gjin goed/ferkeard-feedback.</small></span></label></div><div class="setting"><div class="toggle"><div><h3>Flaters op ’e nij besykje</h3><small>Nei in oefening krijst in knop om allinnich de flaters op ’e nij te meitsjen.</small></div><input id="retryEnabled" type="checkbox"></div></div><div class="setting"><h3>Standertmodus</h3><select id="settingsMode"><option value="daily">Deistich</option><option value="wrong">Flaters oefenje</option><option value="new">Nije wurden</option></select></div><div class="row"><button class="grow" onclick="saveSettingsUI()">Ynstellingen bewarje</button><button class="ghost" onclick="resetAll()">Fuortgong wiskje</button></div></section></main>
   <main id="infoPage" class="page"><section class="card"><h2>Oer Frysk Oefenje</h2><p>In persoanlike Nederlânsk → Fryske wurdentrainer, basearre op <i>Harmswurdeboek by de stúdzje</i>.</p><ul><li>Strikte staveringskontrôle.</li><li>Alternative antwurden út it boekje kinne jildich wêze.</li><li>Flaters wurde op ’e nij ynpland.</li><li>De fuortgong wurdt op dit apparaat bewarre.</li></ul></section><section class="card legal"><h2>© Auteursrjocht & disclaimer</h2><p><b>© 2026 Harm de Jong. Alle rjochten foarbeholden.</b></p><p>Dizze oefenapp, de gearstalling fan de wurdbank, de foarmjouwing en de programmatuur binne mei soarch gearstald foar persoanlik en edukatyf gebrûk.</p><p>De yn de app opnommen wurden en Fryske oersettingen binne basearre op it byhearrende wurdboekje. It auteursrjocht hat ûnder mear betrekking op de eigen seleksje, gearstalling, presintaasje en bewurking.</p><p><b>Disclaimer:</b> nettsjinsteande soarchfâldige gearstalling kinne ûnfolsleinheden, typflaters of taalwarianten foarkomme. De app is bedoeld as helpmiddel by it learen fan it Frysk en ferfangt gjin offisjeel wurdboek of saakkundich taaladvys.</p><p>It is net tastien de app, de gearstalde wurdbank of dielen dêrfan sûnder foarôfgeande tastimming te kopiearjen, iepenbier te meitsjen, te fersprieden of kommersjeel te brûken, foar safier’t dat net al wetlik tastien is.</p></section></main>
   <div class="footer">© 2026 Harm de Jong · <span class="heart">♥</span> Frysk Oefenje</div>
@@ -50,7 +50,7 @@ WORDS.forEach(w => {
   w.answers = [...new Set(w.answers.flatMap(a => String(a).split(/\s*[/,]\s*/).map(s => s.trim()).filter(Boolean)))];
 });
 
-const KEY='frysk_oefenje_v11';
+const KEY='frysk_oefenje_v12';
 const DEFAULTS={stats:{},sessions:0,settings:{count:15,feedback:'instant',retry:true,mode:'daily'},streak:{last:'',days:0}};
 const today=()=>new Date().toISOString().slice(0,10);
 const norm=s=>String(s??'').normalize('NFC').trim().replace(/\s+/g,' ').toLowerCase();
@@ -101,16 +101,28 @@ function renderCategories(){const box=document.getElementById('categoryList');bo
 function renderProgress(){
  const seen=WORDS.filter(w=>stat(w.id).seen>0).length;
  const correctWords=WORDS.filter(w=>stat(w.id).correct>0).length;
- const mastered=WORDS.filter(w=>{const s=stat(w.id);return s.seen>0&&s.wrong===0&&s.correct>=2}).length;
  const pct=WORDS.length?Math.round(correctWords/WORDS.length*100):0;
- const masteredPct=WORDS.length?Math.round(mastered/WORDS.length*100):0;
+ const levels=[
+  [0,'Net raar'],[150,'Reedlik'],[300,'Bêst genôch'],[450,'Hiel aardich'],[600,'Goed dwaande'],
+  [750,'Poerbêst'],[900,'Geniaal'],[1050,'Baas!'],[1200,'Grutsk'],[1350,'Legendarysk!!!']
+ ];
+ let level=0;
+ for(let i=0;i<levels.length;i++) if(correctWords>=levels[i][0]) level=i;
+ const currentStart=levels[level][0];
+ const next=level<levels.length-1?levels[level+1][0]:null;
+ const levelPct=next?Math.min(100,Math.round((correctWords-currentStart)/(next-currentStart)*100)):100;
  document.getElementById('pSessions').textContent=state.sessions||0;
  document.getElementById('pSeen').textContent=seen;
  document.getElementById('pCorrectWords').textContent=correctWords;
  document.getElementById('correctBar').style.width=pct+'%';
  document.getElementById('correctText').textContent=correctWords+' fan '+WORDS.length+' wurden binne al goed beantwurde ('+pct+'%).';
- document.getElementById('masterBar').style.width=masteredPct+'%';
- document.getElementById('progressText').textContent=mastered+' fan '+WORDS.length+' wurden binne foarearst behearske ('+masteredPct+'%). Bliuw regelmjittich werheljen.';
+ document.getElementById('levelText').textContent='Trede '+(level+1)+' — '+levels[level][1];
+ document.getElementById('masterBar').style.width=levelPct+'%';
+ if(next){
+   document.getElementById('progressText').textContent=(next-correctWords)+' goede wurden oant trede '+(level+2)+' — '+levels[level+1][1]+'.';
+ }else{
+   document.getElementById('progressText').textContent='Do hast de heechste trede berikt. Legendarysk!!!';
+ }
 }
 function updateStats(){document.getElementById('total').textContent=WORDS.length;document.getElementById('due').textContent=WORDS.filter(w=>stat(w.id).seen>0&&dueNow(stat(w.id))).length;document.getElementById('wrong').textContent=WORDS.filter(w=>stat(w.id).wrong>0).length;document.getElementById('streakPill').textContent='♥ '+(state.streak?.days||0)+' '+((state.streak?.days||0)===1?'dei':'dagen')}
 function loadSettingsUI(){document.getElementById('settingsCount').value=state.settings.count||15;document.querySelectorAll('input[name=feedbackMode]').forEach(r=>r.checked=r.value===(state.settings.feedback||'instant'));document.getElementById('retryEnabled').checked=state.settings.retry!==false;document.getElementById('settingsMode').value=state.settings.mode||'daily'}
