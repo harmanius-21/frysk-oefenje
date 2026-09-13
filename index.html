@@ -17,7 +17,7 @@
       <div style="height:16px"></div><button onclick="startFromHome()">▶ Hjoed oefenje</button>
     </section>
     <section class="grid">
-      <button class="card tile" onclick="goPage('categoriesPage')"><div class="ico">▦</div><b>Kategoryen</b><small>Kies in tema</small></button>
+      <button class="card tile" onclick="goPage('categoriesPage');renderCategories()"><div class="ico">▦</div><b>Kategoryen</b><small>Kies in tema</small></button>
       <button class="card tile" onclick="goPage('progressPage');renderProgress()"><div class="ico">▥</div><b>Myn fuortgong</b><small>Besjoch dyn groei</small></button>
       <button class="card tile" onclick="startWrong()"><div class="ico">★</div><b>Myn flaters</b><small>Ekstra oefenje</small></button><button class="card tile" onclick="startFlatertoets()"><div class="ico">📝</div><b>Flatertoets</b><small>Toets dysels mei dyn eardere flaters</small></button>
       <button class="card tile" onclick="goPage('settingsPage');loadSettingsUI()"><div class="ico">⚙</div><b>Ynstellingen</b><small>Pas dyn oefening oan</small></button>
@@ -50,7 +50,7 @@ WORDS.forEach(w => {
   w.answers = [...new Set(w.answers.flatMap(a => String(a).split(/\s*[/,]\s*/).flatMap(a => { const m = a.match(/^(.*)\(s\)(.*)$/); return m ? [m[1]+m[2], m[1]+'s'+m[2], a] : [a]; }).map(s => s.trim()).filter(Boolean)))];
 });
 
-const KEY='frysk_oefenje_v14';
+const KEY='frysk_oefenje_v15';
 const DEFAULTS={stats:{},sessions:0,points:0,answerStreak:0,settings:{count:15,feedback:'instant',retry:true,mode:'daily'},streak:{last:'',days:0}};
 const today=()=>new Date().toISOString().slice(0,10);
 const norm=s=>String(s??'').normalize('NFC').trim().replace(/\s+/g,' ').toLowerCase();
