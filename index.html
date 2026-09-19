@@ -49,6 +49,8 @@ button:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(36,73,148,.24
 .taal-module{background:linear-gradient(135deg,#f7fbff,#eef5ff)}
 .taal-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}.taal-icon{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:#e8f0ff;font-size:27px}.taal-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.taal-option{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:none;text-align:left;min-height:58px}.taal-option:hover{border-color:var(--blue)}.taal-option.selected{border-color:var(--blue);background:#eef4ff}.taal-option.correct{border-color:#69b989;background:#eaf8f0;color:#17643a}.taal-option.incorrect{border-color:#d97880;background:#fff0f1;color:#8f2028}.taal-option:disabled{opacity:1;cursor:default}.taal-score{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.taal-score .stat{background:#eef3fa;color:var(--ink);border:1px solid var(--line)}.taal-mistake{padding:12px 0;border-bottom:1px solid var(--line)}.taal-mistake:last-child{border-bottom:0}.module-badge{display:inline-flex;padding:6px 9px;border-radius:999px;background:#eef3fa;color:var(--blue);font-size:12px;font-weight:800}.taal-test-note{background:#fff8e8;border:1px solid #f1d99a;color:#76520b;padding:12px 14px;border-radius:15px}
 @media(max-width:600px){.taal-options{grid-template-columns:1fr}.taal-score{grid-template-columns:1fr 1fr}.taal-score .stat:last-child{grid-column:span 2}}
+
+</style>
 </head><body>
 <div class="wrap">
   <div class="top"><div class="topinner"><div class="brand" aria-label="Fryske flagge"><span class="pompe pompe-main" aria-hidden="true"><svg viewBox="0 0 100 100"><path fill="var(--red)" d="M50 90C37 89 25 84 16 75 7 66 2 54 3 42 4 29 10 18 19 11 27 5 37 4 44 8 51 12 53 20 50 29 48 36 44 43 48 49 51 53 56 54 62 50 69 45 77 42 85 45 94 48 98 56 96 65 93 76 82 84 70 88 63 90 56 91 50 90Z"/></svg></span></div><div class="grow brandtext"><h1>Frysk Oefenje</h1><div class="sub">HARTstikke moai</div></div><span id="streakPill" class="pill streakPill"><span class="pompe pompe-main" aria-hidden="true"><svg viewBox="0 0 100 100"><path fill="var(--red)" d="M50 90C37 89 25 84 16 75 7 66 2 54 3 42 4 29 10 18 19 11 27 5 37 4 44 8 51 12 53 20 50 29 48 36 44 43 48 49 51 53 56 54 62 50 69 45 77 42 85 45 94 48 98 56 96 65 93 76 82 84 70 88 63 90 56 91 50 90Z"/></svg></span>0 dagen</span><button id="installBtn" class="install secondary" onclick="installApp()">＋ Ynstallearje</button></div></div>
@@ -236,6 +238,4 @@ document.getElementById('answer').addEventListener('keydown',e=>{if(e.key==='Ent
   window.addEventListener('resize',updateKeyboardPosition);
   updateKeyboardPosition();
 })();
-</script></body></html
-</style>
->
+</script></body></html>
